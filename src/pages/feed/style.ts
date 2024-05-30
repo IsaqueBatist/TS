@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {IColumn} from './types'
 
 export const Container = styled.main`
   width: 100%;
@@ -45,7 +46,7 @@ line-height: 22px;
 color :white;
 `
 
-export const Column = styled.div`
+export const Column = styled.div<IColumn>`
   flex:${({flex}) => flex};
   padding-right: 24px;
 `

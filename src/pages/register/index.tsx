@@ -4,6 +4,7 @@ import Button from '../../components/Button'
 import { Input } from '../../components/input'
 import { useNavigate } from 'react-router-dom'
 import { api } from '../../services/api'
+import { IformData } from './types'
 
 import { Column, Conta, Container, FormContainer, Row, SubTittle, Text, TextForm, Tittle } from "./style"
 
@@ -24,16 +25,14 @@ const Register = () => {
     resolver: yupResolver(schema),
     mode: 'onChange',
   })
-  console.log(isValid, errors)
-
-  const onSubimit = async formData => {
+  const onSubimit = async (formData: IformData) => {
     try {
       const { data } = await api.post('/users', {
         nome: `${formData.name}`,
         email: `${formData.email}`,
         senha: `${formData.password}`,
       })
-      if(data.length === 1){
+      if (data.length === 1) {
         navigate('/feed')
       } else {
         alert('ERRO')
@@ -60,9 +59,9 @@ const Register = () => {
               Crie sua conta e make the change._
             </SubTittle>
             <form onSubmit={handleSubmit(onSubimit)}>
-              <Input name={'name'} errorMessage={errors?.name?.message} placeholder="Nome Completo" control={control} autoComplete="off"  type="text"/>
-              <Input name={'email'} errorMessage={errors?.email?.message} placeholder="E-mail" control={control} autoComplete="off" type="email"/>
-              <Input name={'password'} errorMessage={errors?.password?.message} placeholder="Password" control={control} autoComplete="off" type="password"/>
+              <Input name={'name'} errorMessage={errors?.name?.message} placeholder="Nome Completo" control={control} autoComplete="off" type="text" />
+              <Input name={'email'} errorMessage={errors?.email?.message} placeholder="E-mail" control={control} autoComplete="off" type="email" />
+              <Input name={'password'} errorMessage={errors?.password?.message} placeholder="Password" control={control} autoComplete="off" type="password" />
               <Button tittle="Criar minha conta" variant='secondary' type="submit" />
             </form>
             <TextForm>

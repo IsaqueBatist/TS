@@ -1,8 +1,8 @@
 
 import { useNavigate } from 'react-router-dom'
-import { Container, TextContent, Tittle, TittleHighlight } from './style.js'
-import Button from "../../components/Button"
-import Header from '../../components/Header/index.jsx'
+import { Container, TextContent, Tittle, TittleHighlight } from './style'
+import Button from "../../components/Button/index"
+import Header from '../../components/Header/index'
 
 const Home = () => {
   const navigate = useNavigate()

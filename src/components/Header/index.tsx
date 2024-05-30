@@ -9,11 +9,13 @@ import {
   SearchInputConainer,
   UserPicture,
   Wrapper
-} from './style.js'
-import Button from '../Button'
+} from './style'
+import Button from '../Button/index'
 import DIO from '../../assets/DIO.png'
+import { IHeader } from './types'
 
-const Header = ({autenticado}) => {
+
+const Header = ({ autenticado }: IHeader) => {
   return (
     <Wrapper>
       <Container>
@@ -27,18 +29,18 @@ const Header = ({autenticado}) => {
               <Menu>Life Code</Menu>
               <Menu>Global</Menu>
             </>) : null}
-          
+
         </Row>
         <Row>
           {autenticado ? (
-            <UserPicture src='https://avatars.githubusercontent.com/u/160277060?v=4'/>
+            <UserPicture src='https://avatars.githubusercontent.com/u/160277060?v=4' />
           ) : (
-          <>
-            <MenuRight href="#">Home</MenuRight>
-            <Button tittle={'Entrar'}></Button>
-            <Button tittle={'Cadastrar'}></Button>
-          </>)}
-          
+            <>
+              <MenuRight href="#">Home</MenuRight>
+              <Button tittle={'Entrar'}></Button>
+              <Button tittle={'Cadastrar'}></Button>
+            </>)}
+
         </Row>
       </Container>
     </Wrapper>

@@ -1,8 +1,8 @@
-import Button from "./components/Button/index.jsx";
-import { Home } from "./pages/home/";
-import { Login } from "./pages/login/"
-import Feed  from "./pages/feed"
-import Register from "./pages/register/index.jsx";
+import Button from "./components/Button/index";
+import { Home } from "./pages/home/index";
+import { Login } from "./pages/login/index"
+import Feed  from "./pages/feed/index"
+import Register from "./pages/register/index";
 
 import {
   BrowserRouter as Router,
