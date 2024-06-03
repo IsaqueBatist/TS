@@ -7,9 +7,9 @@ import { IformData } from './types'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from "yup"
-
-import { api } from '../../services/api'
+import { useContext } from 'react'
 import { Column, Container, CriarText, EsqueciText, Row, SubtittleLogin, TextContent, Tittle, TittleLogin, Wrapper } from './style'
+import { AuthContext } from '../../context/auth'
 
 const schema = yup.object({
   email: yup.string().email('Email não é válido').required('Campo Obrigatório'),
@@ -17,27 +17,15 @@ const schema = yup.object({
 }).required();
 
 const Login = () => {
-  const navigate = useNavigate()
+  const {handleLogin} = useContext(AuthContext)
 
   const { control, handleSubmit, formState: { errors, isValid } } = useForm<IformData>({
     resolver: yupResolver(schema),
     mode: 'onChange',
   })
-  console.log(isValid, errors)
-
   const onSubmit = async (formData: IformData) => {
-    try {
-      const { data } = await api.get(`users?email=${formData.email}&senha=${formData.password}`)
-      if (data.length === 1) {
-        navigate('/feed')
-      } else {
-        alert('Email ou senha incorreto')
-      }
-    } catch {
-      alert('ERRO!!')
-    }
+    handleLogin(formData)
   }
-
 
 
   return (
