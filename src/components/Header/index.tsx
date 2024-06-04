@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import {
-  Column,
   Container,
   Input,
   Menu,
@@ -12,12 +11,12 @@ import {
 } from './style'
 import Button from '../Button/index'
 import DIO from '../../assets/DIO.png'
-import { AuthContext } from '../../context/auth'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../hooks/useAuth'
 
 
 const Header = () => {
-  const { user } = useContext(AuthContext)
+  const { user } = useAuth()
   return (
     <Wrapper>
       <Container>

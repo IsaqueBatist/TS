@@ -1,15 +1,16 @@
-import { useContext } from "react"
 import { Card } from "../../components/card"
 import Header from "../../components/Header"
 import UserInfo from "../../components/UserInfo"
 
 import { Column, Container, TextContent, Tittle, TittleHighlight } from "./style"
-import { AuthContext } from "../../context/auth"
+
 
 const Feed = () => {
+  const { handleSum } = useCalc()
+
   return (
     <>
-      <Header/>
+      <Header />
       <Container>
         <Column flex={3}>
           <Tittle>Feed</Tittle>
